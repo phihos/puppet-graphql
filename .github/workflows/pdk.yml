@@ -11,12 +11,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Install Build Dependencies
+        run: |
+          apt install -yq build-essential
+
       - name: Validate
         uses: mysociety/action-pdk@master
         with:
           action: 'validate'
 
-      - name: Build the stack
+      - name: Start Netbox for Testing
         run: |
           cd spec/functions/netbox
           docker-compose up -d
