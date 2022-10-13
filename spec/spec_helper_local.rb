@@ -13,7 +13,7 @@ def repeat_fibonacci_style_for(attempts)
 end
 
 def wait_for_port(host, port, attempts = 15)
-  puts("Waiting for port #{port} ... ", false)
+  puts("Waiting for port #{port} ... ")
   start = Time.now
   done = repeat_fibonacci_style_for(attempts) do
     system("bash -c \"exec 5<>'/dev/tcp/#{host}/#{port}'\"")

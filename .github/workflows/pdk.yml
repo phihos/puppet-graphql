@@ -23,6 +23,7 @@ jobs:
         run: |
           cd spec/functions/netbox
           docker-compose up -d
+          sleep 10
 
       - name: Run Unit Tests
         run: pdk test unit
