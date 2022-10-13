@@ -13,12 +13,11 @@ jobs:
 
       - name: Install Build Dependencies
         run: |
-          sudo apt install -yq build-essential
+          curl -JLO 'https://pm.puppet.com/cgi-bin/pdk_download.cgi?dist=ubuntu&rel=20.04&arch=amd64&ver=2.5.0.0'
+          sudo dpkg -i pdk_2.5.0.0-1focal_amd64.deb
 
       - name: Validate
-        uses: mysociety/action-pdk@master
-        with:
-          action: 'validate'
+        run: pdk validate
 
       - name: Start Netbox for Testing
         run: |
@@ -26,6 +25,4 @@ jobs:
           docker-compose up -d
 
       - name: Run Unit Tests
-        uses: mysociety/action-pdk@master
-        with:
-          action: 'test unit'
+        run: pdk test unit
