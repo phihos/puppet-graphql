@@ -24,6 +24,7 @@ jobs:
           cd spec/functions/netbox
           docker-compose up -d
           sleep 30
+          curl -D - http://localhost:8000/api/
 
       - name: Run Unit Tests
         run: pdk test unit
