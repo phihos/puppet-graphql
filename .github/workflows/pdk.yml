@@ -13,7 +13,7 @@ jobs:
 
       - name: Install Build Dependencies
         run: |
-          apt install -yq build-essential
+          sudo apt install -yq build-essential
 
       - name: Validate
         uses: mysociety/action-pdk@master
