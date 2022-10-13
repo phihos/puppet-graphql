@@ -24,7 +24,7 @@ describe 'graphql::graphql_query' do
   netbox_site_slug = 'ber'
   netbox_site_id = nil
 
-  before(:all) do
+  before(:all) do # rubocop:disable RSpec/BeforeAfterAll
     wait_for_port(netbox_host, netbox_port)
     NetboxClientRuby.configure do |config|
       config.netbox.auth.token = netbox_api_token
@@ -40,35 +40,39 @@ describe 'graphql::graphql_query' do
     netbox_site_id = new_s.save.id
   end
 
-  it { is_expected.to run.with_params({
-                                        'url' => netbox_graphql_url,
+  it {
+    is_expected.to run.with_params({
+                                     'url' => netbox_graphql_url,
                                         'headers' => { 'Authorization' => "Token #{netbox_api_token}" },
                                         'query' => list_sites_query,
-                                      }).and_return({
-                                                      'data' => {
-                                                        'site_list' => [
-                                                          {
-                                                            'id' => "#{netbox_site_id}",
-                                                            'slug' => netbox_site_slug,
-                                                            'name' => netbox_site_name,
-                                                          }
-                                                        ]
-                                                      }
-                                                    })
+                                   }).and_return({
+                                                   'data' => {
+                                                     'site_list' => [
+                                                       {
+                                                         'id' => netbox_site_id.to_s,
+                                                         'slug' => netbox_site_slug,
+                                                         'name' => netbox_site_name,
+                                                       },
+                                                     ]
+                                                   }
+                                                 })
   }
-  it { is_expected.to run.with_params({
-                                        'headers' => { 'Authorization' => "Token #{netbox_api_token}" },
+  it {
+    is_expected.to run.with_params({
+                                     'headers' => { 'Authorization' => "Token #{netbox_api_token}" },
                                         'query' => list_sites_query,
-                                      }).and_raise_error(Puppet::ParseError, 'Option url must be present in opts argument')
+                                   }).and_raise_error(Puppet::ParseError, 'Option url must be present in opts argument')
   }
-  it { is_expected.to run.with_params({
-                                        'url' => netbox_graphql_url,
+  it {
+    is_expected.to run.with_params({
+                                     'url' => netbox_graphql_url,
                                         'query' => list_sites_query,
-                                      }).and_raise_error(Puppet::ParseError, 'Option headers must be present in opts argument')
+                                   }).and_raise_error(Puppet::ParseError, 'Option headers must be present in opts argument')
   }
-  it { is_expected.to run.with_params({
-                                        'url' => netbox_graphql_url,
+  it {
+    is_expected.to run.with_params({
+                                     'url' => netbox_graphql_url,
                                         'headers' => { 'Authorization' => "Token #{netbox_api_token}" },
-                                      }).and_raise_error(Puppet::ParseError, 'Option query must be present in opts argument')
+                                   }).and_raise_error(Puppet::ParseError, 'Option query must be present in opts argument')
   }
 end

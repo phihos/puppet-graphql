@@ -1,9 +1,10 @@
-def repeat_fibonacci_style_for attempts, &block
+def repeat_fibonacci_style_for(attempts)
   done = false
   attempt = 1
-  last_wait, wait = 0, 1
-  while not done and attempt <= attempts do
-    done = block.call
+  last_wait = 0
+  wait = 1
+  while !done && (attempt <= attempts)
+    done = yield
     attempt += 1
     sleep wait
     last_wait, wait = wait, last_wait + wait

@@ -21,7 +21,7 @@ Puppet::Functions.create_function(:"graphql::graphql_query") do
 
     client = create_client(url, headers)
     query = client.parse(query)
-    result = client.query(query, context: { :headers => headers })
+    result = client.query(query, context: { headers: headers })
     puts result.to_h
     result.to_h
   end
@@ -29,19 +29,19 @@ Puppet::Functions.create_function(:"graphql::graphql_query") do
   def get_opt(opts, *path)
     opt = opts.dig(*path)
     if opt.nil?
-      raise Puppet::ParseError.new("Option #{path.join('.')} must be present in opts argument")
+      raise Puppet::ParseError, "Option #{path.join('.')} must be present in opts argument"
     end
     opt
   end
 
   def create_client(url, headers)
     http = GraphQL::Client::HTTP.new(url) do
-      def headers(context)
+      def headers(context) # rubocop:disable NestedMethodDefinition
         context[:headers]
       end
     end
 
-    schema = GraphQL::Client.dump_schema(http, nil, context: { :headers => headers })
+    schema = GraphQL::Client.dump_schema(http, nil, context: { headers: headers })
     schema = GraphQL::Client.load_schema(schema)
     client = GraphQL::Client.new(schema: schema, execute: http)
     client.allow_dynamic_queries = true
