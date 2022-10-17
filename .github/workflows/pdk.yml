@@ -24,6 +24,7 @@ jobs:
           cd spec/functions/netbox
           docker-compose up -d
           sleep 30
+          ss -tulpn
           curl -D - http://127.0.0.1:8000/api/
 
       - name: Run Unit Tests
