@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
+require 'dry-core'
 require 'netbox-client-ruby'
 
 # start netbox via before running this test docker-compose
