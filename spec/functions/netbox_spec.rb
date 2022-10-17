@@ -5,7 +5,7 @@ require 'netbox-client-ruby'
 
 # start netbox via before running this test docker-compose
 describe 'graphql::graphql_query' do
-  netbox_host = 'localhost'
+  netbox_host = '127.0.0.1'
   netbox_port = 8000
   netbox_rest_url = "http://#{netbox_host}:#{netbox_port}/api/"
   netbox_graphql_url = "http://#{netbox_host}:#{netbox_port}/graphql/"
