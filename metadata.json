@@ -1,15 +1,14 @@
 {
   "name": "phihos-graphql",
   "version": "0.1.0",
-  "author": "Philipp Hossner",
-  "summary": "",
+  "author": "phihos",
+  "summary": "This module provides a helper function to retrieve information from a GraphQL endpoint during catalog compilation.",
   "license": "MIT",
-  "source": "",
+  "source": "https://github.com/phihos/puppet-graphql",
+  "project_page": "https://github.com/phihos/puppet-graphql",
+  "issues_url": "https://github.com/phihos/puppet-graphql",
   "dependencies": [
-    {
-      "name": "puppetlabs-stdlib",
-      "version_requirement": "8.x.x"
-    }
+
   ],
   "operatingsystem_support": [
     {

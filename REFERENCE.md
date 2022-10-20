@@ -57,7 +57,7 @@ Query a GraphQL API via HTTP.
 
 Query a GraphQL API via HTTP.
 
-Returns: `Optional[Hash]` A hash containing the response data and nil when an error occurred.
+Returns: `Optional[Hash]` A hash containing the response data or nil when an error occurred.
 
 ##### `opts`
 
