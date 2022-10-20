@@ -74,11 +74,6 @@ catalog compile time.
 
 ## Development
 
-In the Development section, tell other users the ground rules for contributing
-to your project and how they should submit their work.
-
-## Release Notes/Contributors/Etc. **Optional**
-
 Pull requests welcome.
 
 If you submit a change to this module, be sure to regenerate the reference documentation as follows:
