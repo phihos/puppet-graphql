@@ -73,7 +73,14 @@ describe 'graphql::graphql_query' do
   it {
     is_expected.to run.with_params({
                                      'url' => netbox_graphql_url,
-                                        'headers' => { 'Authorization' => "Token #{netbox_api_token}" },
+                                     'headers' => { 'Authorization' => "Token #{netbox_api_token}" },
                                    }).and_raise_error(Puppet::ParseError, 'Option query must be present in opts argument')
+    is_expected.to run.with_params({
+                                     # the rest url does not work with graphql
+                                     # but we expect the function to nor raise an error and return nil instead
+                                     'url' => netbox_rest_url,
+                                     'headers' => { 'Authorization' => "Token #{netbox_api_token}" },
+                                     'query' => list_sites_query,
+                                   }).and_return(nil)
   }
 end
