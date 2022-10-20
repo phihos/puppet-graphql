@@ -1,1 +1,3 @@
---- {}
+---
+graphql::puppetserver::gem_ensure: 'present'
+graphql::puppetserver::puppetserver_service: 'puppetserver'
