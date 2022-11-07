@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "json"
-require "uri"
 begin
   require 'graphql/client'
   require 'graphql/client/http'
@@ -47,8 +45,7 @@ Puppet::Functions.create_function(:"graphql::graphql_query") do
 
   def create_client(url, headers)
     http = GraphQL::Client::HTTP.new(url) do
-      def headers(context)
-        # rubocop:disable NestedMethodDefinition
+      def headers(context) # rubocop:disable NestedMethodDefinition
         context[:headers]
       end
     end
