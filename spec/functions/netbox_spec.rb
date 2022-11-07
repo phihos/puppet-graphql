@@ -82,5 +82,6 @@ describe 'graphql::graphql_query' do
                                      'headers' => { 'Authorization' => "Token #{netbox_api_token}" },
                                      'query' => list_sites_query,
                                    }).and_return(nil)
+    expect(catalogue).to contain_notify('graphql::graphql_query: key not found: "data"!')
   }
 end

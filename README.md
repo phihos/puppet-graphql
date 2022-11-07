@@ -58,7 +58,7 @@ $result = graphql::graphql_query({
 })
 
 # $result could be undef in case an error occured
-# the error will be logged to the puppetserver logs
+# the error will be logged to the puppetserver logs and a notify resource will be created
 if $result {
   $my_sites = $result['data']['site_list']
 }
