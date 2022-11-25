@@ -1,6 +1,6 @@
 {
   "name": "phihos-graphql",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "phihos",
   "summary": "This module provides a helper function to retrieve information from a GraphQL endpoint during catalog compilation.",
   "license": "MIT",

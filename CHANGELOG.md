@@ -1,12 +1,22 @@
-# Change log
+# Changelog
 
-All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
+## [v0.1.2](https://github.com/phihos/puppet-graphql/tree/v0.1.2) (2022-11-25)
+
+[Full Changelog](https://github.com/phihos/puppet-graphql/compare/v0.1.1...v0.1.2)
+
+**Merged pull requests:**
+
+- Remove graphql-client dependency [\#3](https://github.com/phihos/puppet-graphql/pull/3) ([phihos](https://github.com/phihos))
+
+## [v0.1.1](https://github.com/phihos/puppet-graphql/tree/v0.1.1) (2022-11-07)
+
+[Full Changelog](https://github.com/phihos/puppet-graphql/compare/v0.1.0...v0.1.1)
 
 ## [v0.1.0](https://github.com/phihos/puppet-graphql/tree/v0.1.0) (2022-10-20)
 
 [Full Changelog](https://github.com/phihos/puppet-graphql/compare/29e61693eee61f6d575e011a221dc64130d74b57...v0.1.0)
 
-### UNCATEGORIZED PRS; LABEL THEM ON GITHUB
+**Merged pull requests:**
 
 - More tests and docs [\#2](https://github.com/phihos/puppet-graphql/pull/2) ([phihos](https://github.com/phihos))
 - Fix CI pipeline [\#1](https://github.com/phihos/puppet-graphql/pull/1) ([phihos](https://github.com/phihos))
