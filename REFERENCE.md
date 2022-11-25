@@ -4,50 +4,13 @@
 
 ## Table of Contents
 
-### Classes
-
-* [`graphql::puppetserver`](#graphqlpuppetserver): Installs necessary dependencies for this module on the puppetserver.
-
 ### Functions
 
-* [`graphql::graphql_query`](#graphqlgraphql_query): Query a GraphQL API via HTTP.
-
-## Classes
-
-### <a name="graphqlpuppetserver"></a>`graphql::puppetserver`
-
-Installs necessary dependencies for this module on the puppetserver.
-
-#### Examples
-
-##### 
-
-```puppet
-include graphql::puppetserver
-```
-
-#### Parameters
-
-The following parameters are available in the `graphql::puppetserver` class:
-
-* [`gem_ensure`](#gem_ensure)
-* [`puppetserver_service`](#puppetserver_service)
-
-##### <a name="gem_ensure"></a>`gem_ensure`
-
-Data type: `String[1]`
-
-The ensure parameter for the gems that will be installed.
-
-##### <a name="puppetserver_service"></a>`puppetserver_service`
-
-Data type: `String[1]`
-
-The service to be restarted after a dependency has been installed or updated.
+* [`graphql::graphql_query`](#graphql--graphql_query): Query a GraphQL API via HTTP.
 
 ## Functions
 
-### <a name="graphqlgraphql_query"></a>`graphql::graphql_query`
+### <a name="graphql--graphql_query"></a>`graphql::graphql_query`
 
 Type: Ruby 4.x API
 

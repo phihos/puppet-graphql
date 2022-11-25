@@ -1,11 +1,6 @@
 # frozen_string_literal: true
 
-begin
-  require 'graphql/client'
-  require 'graphql/client/http'
-rescue LoadError => _
-  Puppet.info "You need to install the 'graphql-client' gem. Try 'puppetserver gem install graphql-client'."
-end
+require 'json'
 
 # Query a GraphQL API via HTTP.
 Puppet::Functions.create_function(:"graphql::graphql_query") do
@@ -24,11 +19,19 @@ Puppet::Functions.create_function(:"graphql::graphql_query") do
     Puppet.info "graphql::graphql_query: Querying #{url}"
 
     begin
-      client = create_client(url, headers)
-      query = client.parse(query)
-      result = client.query(query, context: { headers: headers })
-      result.to_h
+      uri = URI(url)
+      request_body = { 'query' => query, 'variables' => nil }.to_json
+      request_headers = {
+        'Content-Type' => 'application/json',
+        'Accept' => 'application/json',
+      }.merge(headers)
+      response = Net::HTTP.post(uri, request_body, request_headers)
+      unless response.kind_of? Net::HTTPSuccess
+        raise "Unexpected response code #{response.code}: #{response.body}"
+      end
+      JSON.parse(response.body)
     rescue => error
+      puts error
       Puppet.err "graphql::graphql_query: #{error}!"
       call_function('create_resources', 'notify', { "graphql::graphql_query: #{error}!" => {} })
       nil
@@ -45,7 +48,8 @@ Puppet::Functions.create_function(:"graphql::graphql_query") do
 
   def create_client(url, headers)
     http = GraphQL::Client::HTTP.new(url) do
-      def headers(context) # rubocop:disable NestedMethodDefinition
+      def headers(context)
+        # rubocop:disable NestedMethodDefinition
         context[:headers]
       end
     end

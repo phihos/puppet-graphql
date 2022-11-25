@@ -17,24 +17,7 @@ But it can be used for any kind of GraphQL HTTP API.
 
 ## Setup
 
-Your puppetserver should have the _graphql-client_ gem installed.
-
-You can install it manually by running:
-
-```bash
-puppetserver gem install graphql-client
-```
-
-You can also automate this by applying the included class `graphql::puppetserver`:
-
-```puppet
-class { 'graphql::puppetserver':
-  gem_ensure           => 'present',
-  puppetserver_service => 'puppetserver',
-}
-```
-
-The parameters above are the defaults.
+This module only needs Ruby's built-in NEt::HTTP library. No further setup needed
 
 ## Usage
 
