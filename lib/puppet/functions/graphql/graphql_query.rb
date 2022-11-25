@@ -37,4 +37,12 @@ Puppet::Functions.create_function(:"graphql::graphql_query") do
       nil
     end
   end
+
+  def get_opt(opts, *path)
+    opt = opts.dig(*path)
+    if opt.nil?
+      raise Puppet::ParseError, "Option #{path.join('.')} must be present in opts argument"
+    end
+    opt
+  end
 end
