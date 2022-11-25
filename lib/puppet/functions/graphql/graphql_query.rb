@@ -26,7 +26,7 @@ Puppet::Functions.create_function(:"graphql::graphql_query") do
         'Accept' => 'application/json',
       }.merge(headers)
       response = Net::HTTP.post(uri, request_body, request_headers)
-      unless response.kind_of? Net::HTTPSuccess
+      unless response.is_a? Net::HTTPSuccess
         raise "Unexpected response code #{response.code}: #{response.body}"
       end
       JSON.parse(response.body)
@@ -36,28 +36,5 @@ Puppet::Functions.create_function(:"graphql::graphql_query") do
       call_function('create_resources', 'notify', { "graphql::graphql_query: #{error}!" => {} })
       nil
     end
-  end
-
-  def get_opt(opts, *path)
-    opt = opts.dig(*path)
-    if opt.nil?
-      raise Puppet::ParseError, "Option #{path.join('.')} must be present in opts argument"
-    end
-    opt
-  end
-
-  def create_client(url, headers)
-    http = GraphQL::Client::HTTP.new(url) do
-      def headers(context)
-        # rubocop:disable NestedMethodDefinition
-        context[:headers]
-      end
-    end
-
-    schema = GraphQL::Client.dump_schema(http, nil, context: { headers: headers })
-    schema = GraphQL::Client.load_schema(schema)
-    client = GraphQL::Client.new(schema: schema, execute: http)
-    client.allow_dynamic_queries = true
-    client
   end
 end
