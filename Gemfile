@@ -30,6 +30,7 @@ group :development do
   gem "rubocop-performance", '~> 1.16', '< 1.24',       require: false
   gem "rubocop-rspec", '~> 2.20', '< 2.28',             require: false
   gem "rb-readline", '= 0.5.5',                        require: false, platforms: [:mswin, :mingw, :x64_mingw]
+  gem "openssl", '~> 3.0',                              require: false
   gem "netbox-client-ruby",                            require: false
   gem "graphql-client",                                require: false
 end
