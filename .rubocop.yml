@@ -4,7 +4,8 @@ require:
 - rubocop-rspec
 AllCops:
   DisplayCopNames: true
-  TargetRubyVersion: '2.5'
+  TargetRubyVersion: '3.2'
+  NewCops: disable
   Include:
   - "**/*.rb"
   Exclude:
@@ -287,11 +288,29 @@ Performance/UriDefaultParser:
   Enabled: false
 RSpec/Be:
   Enabled: false
-RSpec/Capybara/CurrentPathExpectation:
+Capybara/CurrentPathExpectation:
+  Enabled: false
+Capybara/MatchStyle:
+  Enabled: false
+Capybara/NegationMatcher:
+  Enabled: false
+Capybara/RSpec/PredicateMatcher:
+  Enabled: false
+Capybara/SpecificActions:
+  Enabled: false
+Capybara/SpecificFinders:
+  Enabled: false
+Capybara/SpecificMatcher:
   Enabled: false
 RSpec/Capybara/FeatureMethods:
   Enabled: false
-RSpec/Capybara/VisibilityMatcher:
+Capybara/VisibilityMatcher:
+  Enabled: false
+FactoryBot/ConsistentParenthesesStyle:
+  Enabled: false
+FactoryBot/FactoryNameStyle:
+  Enabled: false
+FactoryBot/SyntaxMethods:
   Enabled: false
 RSpec/ContextMethod:
   Enabled: false
@@ -315,11 +334,11 @@ RSpec/ExpectChange:
   Enabled: false
 RSpec/ExpectInHook:
   Enabled: false
-RSpec/FactoryBot/AttributeDefinedStatically:
+FactoryBot/AttributeDefinedStatically:
   Enabled: false
-RSpec/FactoryBot/CreateList:
+FactoryBot/CreateList:
   Enabled: false
-RSpec/FactoryBot/FactoryClassName:
+FactoryBot/FactoryClassName:
   Enabled: false
 RSpec/HooksBeforeExamples:
   Enabled: false

@@ -6,15 +6,15 @@ on:
 
 jobs:
   tests:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Install Build Dependencies
         run: |
-          curl -JLO 'https://pm.puppet.com/cgi-bin/pdk_download.cgi?dist=ubuntu&rel=20.04&arch=amd64&ver=2.5.0.0'
-          sudo dpkg -i pdk_2.5.0.0-1focal_amd64.deb
+          curl -JLO 'https://pm.puppet.com/cgi-bin/pdk_download.cgi?dist=ubuntu&rel=22.04&arch=amd64&ver=3.0.1.3'
+          sudo dpkg -i pdk_3.0.1.3-1jammy_amd64.deb
 
       - name: Install PDK Ruby Dependencies
         run: pdk bundle install
@@ -25,10 +25,14 @@ jobs:
       - name: Start Netbox for Testing
         run: |
           cd spec/functions/netbox
-          docker-compose up -d
+          for i in 1 2 3; do
+            docker compose up -d && break
+            echo "Retrying docker compose up (attempt $i)..."
+            sleep 2
+          done
           while ! curl -s http://127.0.0.1:8000/api/ &> /dev/null ; do
             echo "Waiting for Netbox API..."
-            sleep 1 
+            sleep 1
           done
           echo "Netbox API ready!"
 

@@ -17,7 +17,7 @@ But it can be used for any kind of GraphQL HTTP API.
 
 ## Setup
 
-This module only needs Ruby's built-in NEt::HTTP library. No further setup needed
+This module only needs Ruby's built-in Net::HTTP library. No further setup needed
 
 ## Usage
 
