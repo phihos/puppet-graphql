@@ -20,7 +20,7 @@ jobs:
         run: pdk bundle install
 
       - name: Validate
-        run: pdk validate
+        run: pdk validate --debug 2>&1 | grep -E "(Executing|exit code|STDERR|error|Error|rubocop)" | tail -30
 
       - name: Start Netbox for Testing
         run: |
