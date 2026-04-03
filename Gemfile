@@ -13,6 +13,8 @@ def location_for(place_or_version, fake_version = nil)
   end
 end
 
+gem "openssl", '= 3.1.0',                                require: false
+
 group :development do
   gem "json", '~> 2.0',                                require: false
   gem "voxpupuli-puppet-lint-plugins", '~> 3.0',       require: false
@@ -30,12 +32,10 @@ group :development do
   gem "rubocop-performance", '~> 1.16', '< 1.24',       require: false
   gem "rubocop-rspec", '~> 2.20', '< 2.28',             require: false
   gem "rb-readline", '= 0.5.5',                        require: false, platforms: [:mswin, :mingw, :x64_mingw]
-  gem "openssl", '~> 3.0',                              require: false
   gem "netbox-client-ruby",                            require: false
   gem "graphql-client",                                require: false
 end
 group :system_tests do
-  gem "puppet_litmus", require: false, platforms: [:ruby]
   gem "serverspec", '~> 2.41',    require: false
 end
 
