@@ -20,7 +20,7 @@ jobs:
         run: pdk bundle install
 
       - name: Validate
-        run: pdk validate --debug 2>&1
+        run: pdk validate
 
       - name: Start Netbox for Testing
         run: |
