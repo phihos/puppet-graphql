@@ -287,11 +287,11 @@ Performance/UriDefaultParser:
   Enabled: false
 RSpec/Be:
   Enabled: false
-RSpec/Capybara/CurrentPathExpectation:
+Capybara/CurrentPathExpectation:
   Enabled: false
-RSpec/Capybara/FeatureMethods:
+Capybara/FeatureMethods:
   Enabled: false
-RSpec/Capybara/VisibilityMatcher:
+Capybara/VisibilityMatcher:
   Enabled: false
 RSpec/ContextMethod:
   Enabled: false
@@ -315,11 +315,11 @@ RSpec/ExpectChange:
   Enabled: false
 RSpec/ExpectInHook:
   Enabled: false
-RSpec/FactoryBot/AttributeDefinedStatically:
+FactoryBot/AttributeDefinedStatically:
   Enabled: false
-RSpec/FactoryBot/CreateList:
+FactoryBot/CreateList:
   Enabled: false
-RSpec/FactoryBot/FactoryClassName:
+FactoryBot/FactoryClassName:
   Enabled: false
 RSpec/HooksBeforeExamples:
   Enabled: false
