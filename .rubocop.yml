@@ -290,9 +290,27 @@ RSpec/Be:
   Enabled: false
 Capybara/CurrentPathExpectation:
   Enabled: false
+Capybara/MatchStyle:
+  Enabled: false
+Capybara/NegationMatcher:
+  Enabled: false
+Capybara/RSpec/PredicateMatcher:
+  Enabled: false
+Capybara/SpecificActions:
+  Enabled: false
+Capybara/SpecificFinders:
+  Enabled: false
+Capybara/SpecificMatcher:
+  Enabled: false
 RSpec/Capybara/FeatureMethods:
   Enabled: false
 Capybara/VisibilityMatcher:
+  Enabled: false
+FactoryBot/ConsistentParenthesesStyle:
+  Enabled: false
+FactoryBot/FactoryNameStyle:
+  Enabled: false
+FactoryBot/SyntaxMethods:
   Enabled: false
 RSpec/ContextMethod:
   Enabled: false
