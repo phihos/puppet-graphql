@@ -5,6 +5,7 @@ require:
 AllCops:
   DisplayCopNames: true
   TargetRubyVersion: '3.2'
+  NewCops: disable
   Include:
   - "**/*.rb"
   Exclude:
@@ -289,7 +290,7 @@ RSpec/Be:
   Enabled: false
 Capybara/CurrentPathExpectation:
   Enabled: false
-Capybara/FeatureMethods:
+RSpec/Capybara/FeatureMethods:
   Enabled: false
 Capybara/VisibilityMatcher:
   Enabled: false

@@ -19,9 +19,6 @@ jobs:
       - name: Install PDK Ruby Dependencies
         run: pdk bundle install
 
-      - name: Validate (debug)
-        run: pdk validate --debug 2>&1 || true
-
       - name: Validate
         run: pdk validate
 
