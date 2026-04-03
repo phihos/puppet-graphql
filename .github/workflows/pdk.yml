@@ -25,10 +25,14 @@ jobs:
       - name: Start Netbox for Testing
         run: |
           cd spec/functions/netbox
-          docker compose up -d
+          for i in 1 2 3; do
+            docker compose up -d && break
+            echo "Retrying docker compose up (attempt $i)..."
+            sleep 2
+          done
           while ! curl -s http://127.0.0.1:8000/api/ &> /dev/null ; do
             echo "Waiting for Netbox API..."
-            sleep 1 
+            sleep 1
           done
           echo "Netbox API ready!"
 
