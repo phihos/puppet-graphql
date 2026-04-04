@@ -23,7 +23,7 @@ group :development do
   gem "puppetlabs_spec_helper", '>= 3.0.0',              require: false
   gem "rspec-puppet-facts", '~> 2.0',                  require: false
   gem "simplecov", '~> 0.22',                            require: false
-  gem "dependency_checker", '~> 0.2',                  require: false
+  gem "dependency_checker", '~> 1.0',                  require: false
   gem "parallel_tests", '~> 3.4',                      require: false
   gem "pry", '~> 0.14',                                require: false
   gem "simplecov-console", '~> 0.5',                   require: false
