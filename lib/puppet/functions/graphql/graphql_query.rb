@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require 'json'
+require 'net/http'
+require 'uri'
 
 # Query a GraphQL API via HTTP.
 Puppet::Functions.create_function(:"graphql::graphql_query") do
@@ -31,7 +33,6 @@ Puppet::Functions.create_function(:"graphql::graphql_query") do
       end
       JSON.parse(response.body)
     rescue => error
-      puts error
       Puppet.err "graphql::graphql_query: #{error}!"
       call_function('create_resources', 'notify', { "graphql::graphql_query: #{error}!" => {} })
       nil
