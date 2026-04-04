@@ -40,7 +40,7 @@ $result = graphql::graphql_query({
     'query'   => $query,
 })
 
-# $result could be undef in case an error occured
+# $result could be undef in case an error occurred
 # the error will be logged to the puppetserver logs and a notify resource will be created
 if $result {
   $my_sites = $result['data']['site_list']
@@ -52,7 +52,7 @@ if $result {
 
 ## Limitations
 
-This functions in this module - as all Puppet functions - can only be executed on the puppetmaster host during 
+The functions in this module - as all Puppet functions - can only be executed on the puppetmaster host during
 catalog compile time.
 
 ## Development
