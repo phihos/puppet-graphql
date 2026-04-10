@@ -19,7 +19,7 @@ group :development do
   gem "json", '~> 2.0',                                require: false
   gem "voxpupuli-puppet-lint-plugins", '~> 6.0',       require: false
   gem "facterdb", '~> 4.2',                           require: false
-  gem "metadata-json-lint", '>= 2.0.2', '< 4.0.0',     require: false
+  gem "metadata-json-lint", '>= 2.0.2', '< 6.0.0',     require: false
   gem "puppetlabs_spec_helper", '>= 3.0.0',              require: false
   gem "rspec-puppet-facts", '~> 2.0',                  require: false
   gem "simplecov", '~> 0.22',                            require: false
