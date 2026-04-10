@@ -30,7 +30,7 @@ group :development do
   gem "puppet-debugger",                                require: false
   gem "rubocop", '~> 1.86',                    require: false
   gem "rubocop-performance", '~> 1.26',       require: false
-  gem "rubocop-rspec", '~> 2.20', '< 2.28',             require: false
+  gem "rubocop-rspec", '~> 3.9',             require: false
   gem "rb-readline", '= 0.5.5',                        require: false, platforms: [:mswin, :mingw, :x64_mingw]
   gem "netbox-client-ruby",                            require: false
   gem "graphql-client",                                require: false
